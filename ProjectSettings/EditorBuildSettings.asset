@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PrototipoCombate.unity
     guid: f7a2a85d9cfe85b44a251c41b9e3e62a
+  - enabled: 1
+    path: Assets/Scenes/Has Perdido.unity
+    guid: e1eef66198f9bb84aad55ca4924a4b2f
   m_configObjects: {}

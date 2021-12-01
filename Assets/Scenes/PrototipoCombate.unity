@@ -3101,6 +3101,8 @@ MonoBehaviour:
   perdiste: {fileID: 1173136058}
   Habilidades: {fileID: 1167791581}
   habilidadesEncedido: 0
+  Perdiste: {fileID: 0}
+  Ambiente: {fileID: 944734631}
 --- !u!1 &288944426
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,8 +35,7 @@ public class OpcionesDhifeus : MonoBehaviour
         }
         if (PerdisteEncendido == true)
         {
-            OpcionesEncendido = false;
-            perdiste.SetActive(true);
+            SceneManager.LoadScene("Has Perdido");
         }
         if(habilidadesEncedido == true)
         {
