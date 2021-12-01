@@ -13,6 +13,7 @@ public class EnemigoRuta : MonoBehaviour
     public float raycastLenght;
     public LayerMask groundLayer;
     public ControlJugador controlJugador;
+    public int SaludEnemigo;
 
 
     IEnumerator Esperar()
@@ -43,6 +44,10 @@ public class EnemigoRuta : MonoBehaviour
             rbody.position = new Vector2(rbody.position.x, rbody.position.y + 0.005f);
             StartCoroutine("Esperar");
         }
+        if(SaludEnemigo <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void FixedUpdate()
     {
@@ -61,6 +66,10 @@ public class EnemigoRuta : MonoBehaviour
   
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("BalaFuego"))
+        {
+            SaludEnemigo = SaludEnemigo - 20;
+        }
         if (collision.CompareTag("BalaPsiquica"))
         {
             raycastLenght = 20;

@@ -14,9 +14,12 @@ public class PersonajeDhifeus : MonoBehaviour
     public GameObject disparoPsiquico;
     public GameObject disparoDoble;
     public GameObject disparoAire;
+    public GameObject disparoFuego;
+    public BalaFuego balaFuego;
     public BalaPsiquica balaPsiquica;
     public BalaDoble balaDoble;
     public BalaAire balaAire;
+    public SpriteRenderer sprBalaFuego;
     public SpriteRenderer sprBalaPsiquica;
     public SpriteRenderer sprBalaDoble;
     public SpriteRenderer sprBalaAire;
@@ -107,6 +110,23 @@ public class PersonajeDhifeus : MonoBehaviour
                 Aire();
             }
         }
+        if (Input.GetKeyDown(KeyCode.F) && Time.time > nextFire)
+        {
+            if (Jugador.sprRenderer.flipX == true)
+            {
+                nextFire = Time.time + psiquicRate;
+                balaFuego.CambiarDireccionBala(-velocidadX);
+                sprBalaFuego.flipX = true;
+                Fuego();
+            }
+            else
+            {
+                sprBalaFuego.flipX = false;
+                nextFire = Time.time + psiquicRate;
+                balaFuego.CambiarDireccionBala(velocidadX);
+                Fuego();
+            }
+        }
         if (Salud <= 0)
         {
             gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
@@ -149,7 +169,14 @@ public class PersonajeDhifeus : MonoBehaviour
         this.personaje.EstableciendoMana(this.Mana, this.ManaMaximo);
         this.personaje.barraMana.value = Mana / ManaMaximo;
     }
-    
+    void Fuego()
+    {
+        Instantiate(disparoFuego, transform.position, Quaternion.identity);
+        estadisticasPersonaje.Mana = estadisticasPersonaje.Mana - 2;
+        this.personaje.EstableciendoMana(this.Mana, this.ManaMaximo);
+        this.personaje.barraMana.value = Mana / ManaMaximo;
+    }
+
 
     public void HabilidadEquipada(SlotsObjetos slotsObjetos)
     {

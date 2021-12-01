@@ -8,13 +8,17 @@ public class ReaccionCaja : MonoBehaviour
     public float speed;
     public ControlJugador controlJugador;
     public GameObject Puerta;
+    public SpriteRenderer puertaCerrada;
+    public SpriteRenderer puertaAbierta;
+    public BoxCollider2D colliderPuerta;
 
 
     public void Update()
     {
         if (controlJugador.botonVerde && controlJugador.botonRojo == true)
         {
-            Destroy(Puerta);
+            puertaCerrada.sprite = puertaAbierta.sprite;
+            colliderPuerta.enabled = false;
         }
     }
     IEnumerator CajaIZQ()

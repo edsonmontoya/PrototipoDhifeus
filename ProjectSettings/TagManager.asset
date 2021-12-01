@@ -12,6 +12,8 @@ TagManager:
   - Caja
   - BotonVerde
   - BotonRojo
+  - BalaFuego
+  - Portal
   layers:
   - Default
   - TransparentFX

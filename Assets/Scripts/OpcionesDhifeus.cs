@@ -10,6 +10,8 @@ public class OpcionesDhifeus : MonoBehaviour
     public bool OpcionesEncendido;
     public bool PerdisteEncendido;
     public GameObject perdiste;
+    public GameObject Habilidades;
+    public bool habilidadesEncedido;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,10 +38,24 @@ public class OpcionesDhifeus : MonoBehaviour
             OpcionesEncendido = false;
             perdiste.SetActive(true);
         }
+        if(habilidadesEncedido == true)
+        {
+            OpcionesEncendido = false;
+            Habilidades.SetActive(true);
+        }
+        if(habilidadesEncedido == false)
+        {
+            Habilidades.SetActive(false);
+        }
+        
     }
     public void cuandoQuieroIrAlMenu()
     {
         SceneManager.LoadScene("Menu");
+    }
+    public void CuandoQuieroCerrarHabilidades()
+    {
+        habilidadesEncedido = false;
     }
 
 
